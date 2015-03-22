@@ -1,0 +1,69 @@
+{{ "three.min.js" | asset_url | script_tag }}
+ <script type="text/javascript">
+//   // temp vars - will be replaced with puchDB database calls
+//   var fieldWidth = 50;
+//   var fieldHeight = 30;
+//
+//   /* Creates scene and cameras
+//   Camera is set at 45 degrees, 1-1000 view distance - This is views the entire board
+//   Aspect ratio is calculared*/
+//   var scene = new THREE.Scene();
+//   var aspectRatio = window.innerWidth / window.innerHeight;
+//   var globalCamera = new THREE.PerspectiveCamera(45, aspectRatio, 1, 1000);
+//   var playerCamera = new THREE.PerspectiveCamera(45, aspectRatio, 1, 1000);
+//
+//   /* Creates renderer
+//   Renderer is set to the inner window height
+//   The renderer is appended to the document, which should be empty
+//   */
+//   // TODO: When the window is resized, the renderer will change size with it
+//   var renderer = new THREE.WebGLRenderer();
+//   renderer.setSize( window.innerWidth, window.innerHeight);
+//   document.body.appendChild(renderer.domElement);
+//
+//   /* Sets globalCamera's position to contain 100% of height,
+//   calculates with trig functions to fit whichever dimension is larger */
+//   globalCameraFOVTan = Math.tan( globalCamera.fov / 2 );
+//   globalCamera.WidthHeight = (fieldWidth / 2) / globalCameraFOVTan;
+//   globalCamera.HeightHeight = (fieldHeight / 2) / globalCameraFOVTan;
+//   if (globalCamera.WidthHeight > globalCamera.HeightHeight) {
+//     globalCamera.position.z = globalCamera.WidthHeight;
+//   }
+//   else {
+//     globalCamera.position.z = globalCamera.HeightHeight;
+//   }
+//
+//   /* Creates plane of x width and x height (defined by DB lookup)
+//   Material set to white, doublesided plane
+//   */
+//   var planeGeometry = new THREE.PlaneGeometry( fieldWidth, fieldHeight);
+//   var material = new THREE.MeshBasicMaterial( {color: 0xffffff, side: THREE.DoubleSide} );
+//   var plane = new THREE.Mesh( planeGeometry, material ); //Creates plane object out of defined geometry and materials
+//   scene.add( plane ); //Adds plane to scene
+//
+//   var textGeometry = new THREE.Geometry();
+//   var canvas = document.createElement('canvas');
+//   canvas.width = fieldWidth;
+//   canvas.height = fieldHeight;
+//
+//
+//   function globalRender() {
+//     requestAnimationFrame( globalRender );
+//     renderer.render( scene, globalCamera );
+//   }
+//   globalRender();
+</script>
+<script>
+  var fontSize = 16;
+  var charsPerSide = 16;
+  var c = document.getElementById('canvas');
+  c.width = c.height = fontSize*charsPerSide;
+  var ctx = c.getContext('2d');
+  ctx.font="16px Times New Roman";
+  lorem = ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est et laborum deleniti deserunt, laudantium, laboriosam asperiores quos nesciunt autem debitis eaque obcaecati omnis. Inventore, laboriosam, assumenda. Minus, hic, saepe. Sint.';
+  for(var i=lorem.length, y=0; y > charsPerSide; y++){
+    for(var x=0; x > charsPerSide; x++, i++){
+      ctx.fillText(lorem.charAt(i),x*fontSize,(y+1)*fontSize);
+    }
+  }
+</script>
