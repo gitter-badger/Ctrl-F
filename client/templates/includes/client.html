@@ -1,0 +1,26 @@
+<script>
+	var socket = io.connect('http:/192.168.87.185:6969')
+
+	function httpGet(theUrl)
+	{
+	    var xmlHttp = null;
+
+	    xmlHttp = new XMLHttpRequest();
+	    xmlHttp.open( "GET", theUrl, false );
+	    xmlHttp.send( null );
+	    return xmlHttp.responseText;
+	}
+	var gameID;
+	httpGet('http:/192.168.87.185:6969/' + gameID + '/map');
+
+	function getData (url) {
+		socket.on('move', function (a) {
+			this.x = a.x;
+			this.y = a.y;
+		}
+	}
+
+	xpos = getData(url).x
+	ypos = getData(url).x
+
+		</script>
