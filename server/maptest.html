@@ -1,4 +1,12 @@
 <!DOCTYPE HTML>
 <head>
+  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
   <script src="map.js"></script>
 </head>
+<body>
+  <input type="file" name="file" id="file">
+  <iframe id="Noun" src="Nounlist.txt" onload="LoadFile(Nounlist.txt);" style="display: none;"></iframe>
+  <iframe id="Adjective" src="AdjectiveList.txt" onload="LoadFile(AdjectiveList.txt);" style="display: none;"></iframe>
+  <iframe id="Verb" src="Verblist.txt" onload="LoadFile(Verblist.txt);" style="display: none;"></iframe>
+</body>
+<!-- onload="LoadFile(Nounlist.csv);" -->
