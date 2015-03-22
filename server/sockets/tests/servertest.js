@@ -3,6 +3,7 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
 server.listen(6969);
+console.log('listening');
 
 app.get("/", function (req, res) {
   console.log('paul wuz here');
